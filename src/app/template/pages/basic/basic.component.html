@@ -8,22 +8,105 @@ Buscar: <input type="text" (keyup.enter)="tecleando(tecla.value)" #tecla>
 <hr>
 
 
-<form autocomplete="off" #myForm="ngForm">
+<form (ngSubmit)="guardar()"
+    autocomplete="off" #myForm="ngForm">
 
+    <!-- Nombre del Producto -->
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Producto</label>
         <div class="col-sm-9">
             <input type="text"
                 class="form-control"
-                placeholder="Escribe el nombre del producto">
+                placeholder="Escribe el nombre del producto"
+                [ngModel]="initForm.producto"
+                name="producto"
+                required
+                minlength="3"
+                >
 
-            <span class="form-text text-danger">
+            <span 
+                *ngIf="campoNoValido('producto')"
+                class="form-text text-danger">
                 El nombre es requerido y al menos con 3 letras.
             </span>
         </div>
 
     </div>
-   
-    
+
+    <!-- Precio -->
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Precio</label>
+        <div class="col-sm-9">
+            <input type="number"
+                class="form-control"
+                placeholder="Precio del producto"
+                [ngModel]="initForm.precio"
+                name="precio"
+                required
+                >
+
+            <span 
+                *ngIf="myForm.controls['precio']?.value < 0 && myForm.controls['precio']?.touched"
+                class="form-text text-danger">
+                El precio tiene que ser mayor que 0
+            </span>
+        </div>
+
+    </div>
+
+    <!-- Existencias -->
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Existencias</label>
+        <div class="col-sm-9">
+            <input type="number"
+                class="form-control"
+                placeholder="Existencias del producto"
+                [ngModel]="initForm.existencias"
+                name="existencias"
+                required
+                customMin
+                [minimo]="0"
+                >
+
+            <span *ngIf="existenciasNoValido()"
+                class="form-text text-danger">
+                La existencia mínima es 0.
+            </span>
+        </div>
+
+    </div>
+
+    <!-- [disabled]="myForm.invalid" -->
+
+    <div class="row">
+        <div class="col">
+            <button type="submit"
+              
+                class="btn btn-primary float-end">Guardar</button>
+        </div>
+    </div>
+
+
 
 </form>
+
+
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre>{{ myForm.valid }}</pre>
+
+        <span>Value</span>
+        <pre>{{ myForm.value | json }}</pre>
+
+    
+        <span>Pristine</span>
+        <pre>{{ myForm.pristine }}</pre>
+
+        <span>Touched</span>
+        <pre>{{ myForm.touched }}</pre>
+
+
+    </div>
+
+</div>

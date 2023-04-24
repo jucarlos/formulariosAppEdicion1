@@ -9,10 +9,12 @@ import { TemplateRoutingModule } from './template-routing.module';
 import { BasicComponent } from './pages/basic/basic.component';
 import { DynamicComponent } from './pages/dynamic/dynamic.component';
 import { SwitchesComponent } from './pages/switches/switches.component';
+import { CustomMinDirective } from './directives/custom-min.directive';
 
 
 @NgModule({
   declarations: [
+    CustomMinDirective,
     BasicComponent,
     DynamicComponent,
     SwitchesComponent
