@@ -1,0 +1,29 @@
+<!-- Buscar: <input type="text" #txtBuscar>
+Buscar: <input type="text" (keyup.enter)="tecleando(tecla.value)" #tecla>
+
+<button (click)="buscar( txtBuscar.value )">Guardar</button>  -->
+
+
+<h4>Template: Básicos</h4>
+<hr>
+
+
+<form autocomplete="off" #myForm="ngForm">
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Producto</label>
+        <div class="col-sm-9">
+            <input type="text"
+                class="form-control"
+                placeholder="Escribe el nombre del producto">
+
+            <span class="form-text text-danger">
+                El nombre es requerido y al menos con 3 letras.
+            </span>
+        </div>
+
+    </div>
+   
+    
+
+</form>
