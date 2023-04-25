@@ -15,7 +15,7 @@ export class DynamicComponent {
       ['Java', Validators.required ],
       ['Sql', Validators.required ]
     ])
-  });
+  }, );
 
   nuevoFavorito: FormControl = this.fb.control('', [ Validators.required, Validators.minLength(2) ] );
 

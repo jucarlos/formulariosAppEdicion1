@@ -1,1 +1,134 @@
-<p>register works!</p>
+<h4>Registro - Validaciones reactivas.</h4>
+<hr>
+<div class="row">
+
+    <form [formGroup]="miFormulario" (ngSubmit)="guardar()" autocomplete="off">
+
+    <div class="col">
+
+        <!-- Nombre -->
+        <div class="row mb-3">
+            <label clas="col-sm-3 col-form-label">Nombre</label>
+            <div class="col-sm-9">
+                <input type="text"
+                    class="form-control"
+                    placeholder="Introduce tu nombre"
+                    formControlName="nombre"
+                    >
+
+                <small class="form-text text-danger">
+                    El nombre es requerido
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- Identificador -->
+        <div class="row mb-3">
+            <label clas="col-sm-3 col-form-label">Indentificador</label>
+            <div class="col-sm-9">
+                <input type="text"
+                    class="form-control"
+                    placeholder="Introduce el identificador"
+                    formControlName="identificador"
+                    >
+
+                <small class="form-text text-danger">
+                    El nombre es requerido
+                </small>
+
+            </div>
+
+        </div>
+
+        <!-- email -->
+        <div class="row mb-3">
+            <label clas="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-9">
+                <input type="email"
+                    class="form-control"
+                    placeholder="Introduce tu email"
+                    formControlName="email"
+                    >
+
+                <small class="form-text text-danger">
+                    El email es requerido
+                </small>
+
+            </div>
+
+        </div>
+
+        <!-- UserName -->
+        <div class="row mb-3">
+            <label clas="col-sm-3 col-form-label">Username</label>
+            <div class="col-sm-9">
+                <input type="text"
+                    class="form-control"
+                    placeholder="Introduce tu email"
+                    formControlName="userName"
+                    >
+
+                <small class="form-text text-danger">
+                   El username es requerido y no puede ser 'carlos'
+                </small>
+
+            </div>
+
+        </div>
+
+        <!-- Password 1 -->
+
+        <div class="row mb-3">
+            <label clas="col-sm-3 col-form-label">Password</label>
+            <div class="col-sm-9">
+                <input type="password"
+                    class="form-control"
+                    placeholder="Introduce la password"
+                    formControlName="password1"
+                    >
+
+                <small class="form-text text-danger">
+                   La password tiene que tener al menos 6 caractéres.
+                </small>
+
+            </div>
+
+        </div>
+
+        <!-- Password 2 -->
+        <div class="row mb-3">
+            <label clas="col-sm-3 col-form-label">Repite la Password</label>
+            <div class="col-sm-9">
+                <input type="password"
+                    class="form-control"
+                    placeholder="repite la password"
+                    formControlName="password2"
+                    >
+
+                <small class="form-text text-danger">
+                   Las password tienen que coincidir
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- Botón-->
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary float-end">
+                    Guardar
+                </button>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</form>
+</div>
