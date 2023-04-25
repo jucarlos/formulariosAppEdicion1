@@ -21,7 +21,7 @@ Buscar: <input type="text" (keyup.enter)="tecleando(tecla.value)" #tecla>
                 [ngModel]="initForm.producto"
                 name="producto"
                 required
-                minlength="3"
+                minlength="5"
                 >
 
             <span 
@@ -46,7 +46,8 @@ Buscar: <input type="text" (keyup.enter)="tecleando(tecla.value)" #tecla>
                 >
 
             <span 
-                *ngIf="myForm.controls['precio']?.value < 0 && myForm.controls['precio']?.touched"
+                *ngIf="myForm.controls['precio']?.value < 0 
+                    && myForm.controls['precio']?.touched"
                 class="form-text text-danger">
                 El precio tiene que ser mayor que 0
             </span>
@@ -65,12 +66,12 @@ Buscar: <input type="text" (keyup.enter)="tecleando(tecla.value)" #tecla>
                 name="existencias"
                 required
                 customMin
-                [minimo]="0"
+                [minimo]="1"
                 >
 
             <span *ngIf="existenciasNoValido()"
                 class="form-text text-danger">
-                La existencia mínima es 0.
+                La existencia mínima es 1.
             </span>
         </div>
 

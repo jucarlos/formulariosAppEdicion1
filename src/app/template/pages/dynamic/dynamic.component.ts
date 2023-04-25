@@ -29,8 +29,8 @@ export class DynamicComponent {
   persona: Persona = {
     nombre: 'Carlos',
     favoritos: [
-      { id: 1, nombre: 'Java'},
-      { id: 2, nombre: 'Sql'}
+      { id: 243343, nombre: 'Java'},
+      { id: 2343434, nombre: 'Sql'}
     ]
   }
 
@@ -44,8 +44,9 @@ export class DynamicComponent {
       nombre: this.nuevoFavorito,
     }
 
-    this.persona.favoritos.push ( {...favorito} );
-    // this.persona.favoritos.push( favorito );
+   // this.persona.favoritos.push ( {...favorito } );
+    
+     this.persona.favoritos.push( favorito );
 
     this.nuevoFavorito = '';
 
@@ -60,5 +61,7 @@ export class DynamicComponent {
   guardar(): void {
 
     console.log( this.miFormulario.value );
+
+      
   }
 }

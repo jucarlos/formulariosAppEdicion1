@@ -34,16 +34,20 @@ export class BasicComponent implements OnInit {
 
   precioNoValido(): boolean {
 
-    return this.myForm?.controls['precio']?.value <= 0 && this.myForm?.controls['precio']?.touched;
+    return this.myForm?.controls['precio']?.value <= 0 &&
+     this.myForm?.controls['precio']?.touched;
 
   }
 
   existenciasNoValido(): boolean {
-    return this.myForm?.controls['existencias']?.invalid && this.myForm?.controls['existencias']?.touched;
+    return this.myForm?.controls['existencias']?.invalid && 
+           this.myForm?.controls['existencias']?.touched;
   }
 
 
   guardar( ) {
+
+    console.log( this.myForm);
 
     if ( this.myForm.invalid ) {
 
