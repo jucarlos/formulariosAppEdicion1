@@ -2,7 +2,7 @@
 <h4>Reactivo: Switches</h4>
 <hr>
 
-<form >
+<form [formGroup]="miFormulario" (ngSubmit)="guardar()">
 
     <!-- Radios -->
     <div class="row mb-3">
@@ -15,7 +15,7 @@
                     type="radio" 
                     id="radioMasculino"
                     value="M"
-                   
+                    formControlName="genero"
                     >
                 <label class="form-check-label" 
                     for="radioMasculino">
@@ -28,7 +28,7 @@
                     type="radio" 
                     id="radioFemenino"
                     value="F"
-                   
+                    formControlName="genero"
                     >
 
                 <label class="form-check-label" for="radioFemenino">
@@ -51,7 +51,7 @@
                     type="checkbox" 
                     role="switch" 
                     id="switchNotificaciones"
-             
+                    formControlName="notificaciones"
                     >
                 <label class="form-check-label" for="switchNotificaciones">¿Desea recibir notificaciones?</label>
               </div>
@@ -71,7 +71,7 @@
                         type="checkbox" 
                         value="" 
                         id="checkTerminos"
-
+                        formControlName="condiciones"
                         >
                 <label class="form-check-label" for="checkTerminos">
                   Terminos y Condiciones
@@ -96,3 +96,11 @@
 </form>
 
 
+<span>Valid</span>
+<pre>{{ miFormulario.valid }}</pre>
+
+<span>Value</span>
+<pre>{{ miFormulario.value | json }} </pre>
+
+<span>Persona</span>
+<pre>{{ persona | json }}</pre>
