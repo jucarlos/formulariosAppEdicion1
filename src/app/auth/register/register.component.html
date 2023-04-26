@@ -16,7 +16,8 @@
                     formControlName="nombre"
                     >
 
-                <small class="form-text text-danger">
+                <small *ngIf="campoNoValido('nombre')"
+                    class="form-text text-danger">
                     El nombre es requerido
                 </small>
 
@@ -35,8 +36,9 @@
                     formControlName="identificador"
                     >
 
-                <small class="form-text text-danger">
-                    El nombre es requerido
+                <small *ngIf="campoNoValido('identificador')"
+                    class="form-text text-danger">
+                    El identificador es obligatorio y al menos 9 letras.
                 </small>
 
             </div>
@@ -53,8 +55,9 @@
                     formControlName="email"
                     >
 
-                <small class="form-text text-danger">
-                    El email es requerido
+                <small *ngIf="campoNoValido('email')"
+                    class="form-text text-danger">
+                    El email es requerido y tiene que ser válido
                 </small>
 
             </div>
@@ -67,11 +70,12 @@
             <div class="col-sm-9">
                 <input type="text"
                     class="form-control"
-                    placeholder="Introduce tu email"
+                    placeholder="Introduce tu username"
                     formControlName="userName"
                     >
 
-                <small class="form-text text-danger">
+                <small *ngIf="campoNoValido('userName')" 
+                    class="form-text text-danger">
                    El username es requerido y no puede ser 'carlos'
                 </small>
 
@@ -90,7 +94,8 @@
                     formControlName="password1"
                     >
 
-                <small class="form-text text-danger">
+                <small *ngIf="campoNoValido('password1')"
+                    class="form-text text-danger">
                    La password tiene que tener al menos 6 caractéres.
                 </small>
 
@@ -108,7 +113,8 @@
                     formControlName="password2"
                     >
 
-                <small class="form-text text-danger">
+                <small *ngIf="campoNoValido('password2')"
+                    class="form-text text-danger">
                    Las password tienen que coincidir
                 </small>
 
@@ -132,3 +138,27 @@
 
 </form>
 </div>
+
+<h4>Formulario Valid</h4>
+<pre>{{ miFormulario.valid }}</pre>
+<h4>Estado del formulario</h4>
+<pre>{{ miFormulario.status }}</pre>
+
+<h4>Password1 - errores</h4>
+<pre>{{ miFormulario.get('password1')?.errors | json }}</pre>
+
+<h4>Password2 - errores</h4>
+<pre>{{ miFormulario.get('password2')?.errors | json }}</pre>
+
+
+<h4>Email - errores</h4>
+<pre>{{ miFormulario.get('email')?.errors | json }}</pre>
+
+<h4>Username - errores</h4>
+<pre>{{ miFormulario.get('userName')?.errors | json }}</pre>
+
+<h4>Identificador - errores</h4>
+<pre>{{ miFormulario.get('identificador')?.errors | json }}</pre>
+
+<h4>Nombre - errores </h4>
+<pre>{{ miFormulario.get('nombre')?.errors | json }}</pre>
