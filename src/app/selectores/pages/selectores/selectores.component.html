@@ -1,0 +1,89 @@
+
+<h4>Selectores</h4>
+<hr>
+
+<div class="row">
+    <div class="col">
+
+        <form [formGroup]="miFormulario" (ngSubmit)="guardar()">
+
+        <!-- Continentes -->
+        <div class="row mb-3">
+            <div class="col-sm-3">
+                <label class="col-form-label">Continentes</label>
+            </div>
+            <div class="col-sm-9">
+                <select class="form-control" formControlName="region">
+                    <option value="">--Seleccione un continente</option>
+                    <option *ngFor="let region of regiones"
+                        [value]="region | lowercase">{{ region }}
+                    </option>
+                </select>
+            </div>
+
+
+        </div>
+
+
+        <!-- Paises -->
+        <div class="row mb-3">
+            <div class="col-sm-3">
+                <label class="col-form-label">Paises</label>
+            </div>
+            <div class="col-sm-9">
+                <select class="form-control" formControlName="pais">
+                    <option value="">--Seleccione un pais</option>
+                    <option *ngFor="let pais of paises"
+                        [value]="pais.alpha3Code">
+                    {{ pais.name}}
+                    </option>
+                </select>
+            </div>
+
+
+        </div>
+
+        <!-- Fronteras -->
+        <div class="row mb-3">
+            <div class="col-sm-3">
+                <label class="col-form-label">Frontera</label>
+            </div>
+            <div class="col-sm-9">
+                <select class="form-control" formControlName="frontera">
+                    <option value="">--Selecciona la frontera</option>
+                    <option *ngFor="let frontera of fronteras"
+                        [value]="frontera"   >
+                        {{ frontera }}  </option>
+                </select>
+            </div>
+
+
+        </div>
+
+
+        <!-- Spinner -->
+        <div *ngIf="cargando"
+            class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+
+
+
+        <!-- Botón -->
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-primary float-end">Guardar</button>
+            </div>
+        </div>
+
+    </form>
+
+    </div>
+</div>
+
+
+<h4>Form valid:</h4>
+<pre></pre>
+
+<h4>Valor del formulario</h4>
+<pre>{{ miFormulario.value | json }}</pre>
